@@ -1,0 +1,88 @@
+In the Programming_Project.zip, I've included two programs. The DFA program that can compile 3 DFA
+examples and a NFA to DFA program that converts an NFA to a DFA.
+
+In the DFA program, there are three classes that define a DFA. The classes are DFA1.java, DFA2.java, 
+and DFA2.java.
+
+The language for DFA1 accepts strings that include 'abc', for example: {abc, aabc, abbc, abcc, ...}. 
+In DFA1.java, the enum Alphabet, lines 10-18, defines the alphabet that is accepted by the DFA. Line 22 
+of the enum States, lists the states of the DFA, each one taking as an argument a boolean value that 
+indicates if that state is a final state or not. Lines 34-50 define the transitions the DFA takes upon 
+consuming a symbol. By default in my code, the start state is Q0.
+
+The language for DFA2 accepts strings that starts with an 'a' and ends in an 'a', for example: 
+{aba, a, aabbbaa, aaba}. In DFA2.java, lines 11-19, defines the alphabet that is accepted by the DFA. 
+Line 23 of the enum States, lists the states of the DFA, each one taking as an argument a boolean value 
+that indicates if that state is a final state or not. Lines 33-44 defines the transitions the DFA takes 
+upon consuming an symbol. By default in my code, the start state is Q0.
+
+The language for DFA3 accepts strings in which every 0 is never followed by 11, for example:
+{00, 11, 01, 000, 1111}. In DFA3.java, lines 11-19 defines the alphabet that is accepted by the DFA.
+Line 24 of the enum States, lists the states of the DFA, each one taking as an argument a boolean 
+value that indicates if that state is a final state or not. Lines 31-40 defines the transitions the 
+DFA takes upon consuming a symbol. By default in my code, the start state is Q0.
+
+In my second program that converts an NFA to a DFA, there is one class NFA.java that defines an NFA.
+The language for the NFA accepts strings like {a, baba, baa, baba, aaaa}. In NFA.java, lines 15-23
+defines the alphabet that is accepted by the NFA. Line 27 of the enum States lists the states of the
+NFA, each one taking as an argument a boolean value that indicates if that state is a final state or 
+not. Lines 39-51 defines the transitions the NFA takens upon consuming a symbol. By default in my code, 
+the start state is Q0. There is also a method called eClose() that returns the e-closure of transitions.
+There is also the DFA.java class which defines the DFA created from the conversion. Line 11 lists the 
+states the of the DFA, each one taking as an argument a boolean value that indicates if that state is final
+or not. Lines 19-30 defines the transitions the DFA takes upon consuming a symbol. The DFA references
+the alphabet defines in NFA.java since they must have the same alphabet. The alphabet shared can be found in 
+NFA.java lines 15-23. By default in my code, the start state for the DFA is Q0Q2.
+
+Strings tested and accepted by DFA1:
+abc
+abbccc
+aaabbbccc
+abbbbbbbccccc
+
+Strings tested and rejected by DFA1:
+babc
+aaaa
+abccba
+abbbbba
+
+Strings tested and accepted by DFA2:
+abba
+abbbbba
+bbaa
+abbaabababababababbbbbaaa
+
+Strings tested and rejected by DFA2:
+bab
+bbaaa
+aabbabab
+aaaaabbbbaab
+
+Strings tested and accepted by DFA3:
+111
+0100010
+111111101
+0101010100001
+
+Strings tested and rejected by DFA3:
+011
+11011
+011011
+11111011011
+01101101101111
+
+
+Strings tested and accepted by NFA and DFA created from NFA:
+a
+baa
+bbbbbaaa
+baabaaababababbabababaaaaa
+
+Strings tested and rejected by NFA and DFA created from NFA:
+b
+bb
+babba
+aaaaab
+
+
+
